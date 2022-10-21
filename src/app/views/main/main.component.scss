@@ -1,0 +1,22 @@
+.mat-header-cell button {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 27px;
+  padding: 0 14px;
+}
+
+.mat-cell .button-row button {
+  min-width: 50px;
+  line-height: 24px;
+  padding: 0 11px;
+  font-size: 12px;
+  font-weight: 400;
+
+  &:first-child {
+    margin-right: 10px;
+  }
+}
+
+.mat-table {
+  min-height: 600px;
+}

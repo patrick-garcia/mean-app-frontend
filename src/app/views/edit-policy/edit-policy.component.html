@@ -1,0 +1,59 @@
+<mat-card class="container">
+  <div class="sub-header mb-4">
+    <h2>Policy Number: {{ currPolicyNumber }}</h2>
+  </div>
+
+  <form [formGroup]="policyForm" (ngSubmit)="onFormSubmit()">
+    <mat-grid-list class="form-grid" cols="3" rowHeight="fit" style="height: 300px" gutterSize="30px">
+      <mat-grid-tile cols="1" rowspan="1">
+        <app-form-input
+          label="first name"
+          [control1]="policyForm.controls.firstName"
+        ></app-form-input>
+      </mat-grid-tile>
+
+      <mat-grid-tile cols="1" rowspan="1">
+        <app-form-input
+          label="last name"
+          [control1]="policyForm.controls.lastName"
+        ></app-form-input>
+      </mat-grid-tile>
+
+      <mat-grid-tile cols="1" rowspan="1">
+        <app-form-input-date
+          label="date of birth"
+          [control1]="policyForm.controls.dateOfBirth"
+        ></app-form-input-date>
+      </mat-grid-tile>
+
+      <mat-grid-tile cols="1" rowspan="1">
+        <app-form-input-date
+          label="start date"
+          [control1]="policyForm.controls.startDate"
+        ></app-form-input-date>
+      </mat-grid-tile>
+
+      <mat-grid-tile cols="1" rowspan="1">
+        <app-form-input-date
+          label="end date"
+          [control1]="policyForm.controls.endDate"
+        ></app-form-input-date>
+      </mat-grid-tile>
+
+      <mat-grid-tile cols="2" rowspan="2">
+        <app-form-input-textarea
+          label="description"
+          [control1]="policyForm.controls.description"
+        ></app-form-input-textarea>
+      </mat-grid-tile>
+    </mat-grid-list>
+    
+    <div class="button-row">
+      <button class="mr-2" mat-stroked-button routerLink="/main">cancel</button>
+      <button type="submit" mat-raised-button color="primary"
+        [disabled]="policyForm.invalid">
+        save
+      </button>
+    </div>
+  </form>
+</mat-card>

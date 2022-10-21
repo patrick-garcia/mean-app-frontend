@@ -1,0 +1,19 @@
+<div class="input-container">
+  <mat-form-field appearance="fill">
+    <mat-label>{{ label | titlecase }}</mat-label>
+    <input matInput [placeholder]="label" [formControl]="control1" required>
+    
+    <mat-error *ngIf="control1.hasError('required')">
+      cannot be empty
+    </mat-error>
+
+    <mat-error *ngIf="control1.errors && control1.errors.minlength">
+      minimum {{ control1.errors.minlength.requiredLength }} characters required
+    </mat-error>
+
+    <mat-error *ngIf="control1.errors && control1.errors.maxlength">
+      cannot exceed {{ control1.errors.maxlength.requiredLength }} characters
+    </mat-error>
+
+  </mat-form-field>
+</div>

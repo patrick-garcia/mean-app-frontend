@@ -1,0 +1,58 @@
+<div class="container app-table">
+  <mat-table [dataSource]="policies" class="container mat-elevation-z8">
+    <ng-container matColumnDef="_id">
+      <mat-header-cell *matHeaderCellDef>Policy No.</mat-header-cell>
+      <mat-cell *matCellDef="let item"> {{item._id}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="firstName">
+      <mat-header-cell *matHeaderCellDef>First Name</mat-header-cell>
+      <mat-cell *matCellDef="let item"> {{item.firstName}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="lastName">
+      <mat-header-cell *matHeaderCellDef>Last Name</mat-header-cell>
+      <mat-cell *matCellDef="let item"> {{item.lastName}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="dateOfBirth">
+      <mat-header-cell *matHeaderCellDef> DOB </mat-header-cell>
+      <mat-cell *matCellDef="let item"> {{item.dateOfBirth | date}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="startDate">
+      <mat-header-cell *matHeaderCellDef>Start Date</mat-header-cell>
+      <mat-cell *matCellDef="let item"> {{item.startDate | date}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="endDate">
+      <mat-header-cell *matHeaderCellDef>End Date</mat-header-cell>
+      <mat-cell *matCellDef="let item"> {{item.endDate | date}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+      <mat-cell *matCellDef="let item"> {{item.description}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <mat-header-cell *matHeaderCellDef>
+        <div class="button-row d-flex">
+          <button mat-raised-button color="primary"
+            [routerLink]="['/add-policy']">
+            new policy
+          </button>
+        </div>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let item">
+        <div class="button-row d-flex">
+          <button mat-stroked-button (click)="handleEditBtn(item._id)">edit</button>
+          <button mat-stroked-button color="warn" (click)="handleDeleteBtn(item._id)">delete</button>
+        </div>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>
